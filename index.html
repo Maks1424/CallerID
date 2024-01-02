@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="shortcut icon" href="./img/logo.svg">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function search() {
+            var phoneNumber = $("#phoneNumber").val();
+
+            $.ajax({
+                type: "POST",
+                url: "search.php",
+                data: { phone_number: phoneNumber },
+                success: function(response) {
+                    $("#searchResult").html(response);
+                    $("#searchResult").show();
+                }
+            });
+        }
+    </script>
+    <title>Определитель номера</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__controls">
+                <a href="#"><img class="header__logo" src="img/logo.svg" alt=""></a>
+                <h1 class="name__site">Определитель номера</h1>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="main__title">
+                <h1 class="main__name">Миллионы телефонов ждут ваc</h1>
+                <p class="main__paragraph">Ищите номера телефонов по всему интернету и 
+                полную информацию о них, либо оставляйте свои отзывы.</p>
+            </div>
+            <div class="arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="115" height="90" viewBox="0 0 1150 900">
+                    <path d="M122 800c-40-43-72-83-72-89 0-23 21-9 72 49 29 33 55 60 59 60 3 0 10-32 13-71 13-125 80-296 158-399 43-57 147-155 208-195A787 787 0 0 1 983 14c83-6 97-5 97 8 0 12-20 16-102 21a781 781 0 0 0-600 320 835 835 0 0 0-164 435c-7 33 9 27 71-29 37-34 59-49 66-42s-14 32-62 74c-39 35-77 67-84 71-7 5-38-22-83-72z" fill="#191919"/></svg>
+            </div>
+            <div class="search__number">
+                <form class="search" id="searchForm">
+                    <div class="search__input">
+                        <input class="input" type="text" id="phoneNumber" name="phone_number" value="+7" maxlength="12" autocomplete="off" placeholder="+7">
+                        <button class="button" type="button" onclick="search()">Поиск</button>
+                    </div>
+                </form>
+                <div class="main__information" id="searchResult">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright">
+                <p>© 2023 All Rights Reserved</p>
+                <div class="connection">
+                    <a href="https://vk.com/maks2224"><img class="footer__logo" src="./img/vk.svg" alt="Maxim Savin"></a>
+                    <a href="https://vk.com/id278168891"><img class="footer__logo" src="./img/vk.svg" alt="Danila Rumiancev"></a>
+                    <a href="https://vk.com/1kodoku"><img class="footer__logo" src="./img/vk.svg" alt="Evgeny Telegin"></a>
+                </div>
+            </div> 
+        </div>
+    </footer>
+</body>
+</html>
