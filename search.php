@@ -6,7 +6,6 @@ define('DB_NAME', 'caller.ID');
 
 try {
     $pdo = new PDO("pgsql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $phone_number = $_POST['phone_number'];

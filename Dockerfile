@@ -1,4 +1,3 @@
-
 FROM php:apache
 
 RUN apt-get update \
